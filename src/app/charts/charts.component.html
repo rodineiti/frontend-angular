@@ -1,0 +1,38 @@
+<navbar></navbar>
+
+<div class="mat-elevation-z8">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Gráfico por Período</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form class="example-form">
+          <table class="full-width-input" cellspacing="0">
+            <tr>
+              <td>
+                <mat-form-field class="full-width-input">
+                <input matInput type="date" [(ngModel)]="form.dateStart" name="dateStart" required>
+                </mat-form-field>
+              </td>
+              <td>
+                  <mat-form-field class="full-width-input">
+                  <input matInput type="date" [(ngModel)]="form.dateEnd" name="dateEnd" required>
+                  </mat-form-field>
+                </td>
+            </tr>
+          </table>
+        </form>
+        <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button (click)="submit($event)" color="primary" *ngIf="!editable" >Consultar</button>
+      </mat-card-actions>
+    </mat-card>
+    <br>
+    <mat-list *ngIf="isResults">
+        <mat-list-item *ngFor="let item of categories">
+          {{item.name}} - <button mat-raised-button color="primary">{{item.value}}</button>
+        </mat-list-item>
+      </mat-list>
+      <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+  </div>

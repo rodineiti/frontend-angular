@@ -1,0 +1,75 @@
+<div class="container">
+<mat-card align="center">
+<img src="https://cdn5.vectorstock.com/i/thumb-large/13/09/logo-finance-vector-10371309.jpg" alt="">
+<mat-tab-group class="signin-content">
+  <mat-tab label="Login">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form class="example-form">
+          <table class="full-width-input" cellspacing="0">
+            <tr>
+              <td>
+                <mat-form-field class="full-width-input">
+                <input matInput placeholder="E-mail" [(ngModel)]="user.username" name="username" required>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+            <td><mat-form-field class="full-width-input">
+              <input matInput placeholder="Senha" [(ngModel)]="user.password"type="password" name="password" required>
+            </mat-form-field></td>
+          </tr></table>
+        </form>
+        <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button (click)="login($event)" color="primary">Login</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-tab>
+  <mat-tab label="Registro">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Registro</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form class="example-form">
+          <table class="full-width-input" cellspacing="0">
+            <tr>
+              <td>
+                <mat-form-field class="full-width-input">
+                <input matInput placeholder="Nome" [(ngModel)]="form.name" name="name" required>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field class="full-width-input">
+                <input matInput placeholder="E-mail" [(ngModel)]="form.email" name="email" required>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td><mat-form-field class="full-width-input">
+                <input matInput placeholder="Senha" [(ngModel)]="form.password"type="password" name="password" required>
+              </mat-form-field></td>
+            </tr> 
+            <tr>
+              <td><mat-form-field class="full-width-input">
+                <input matInput placeholder="Repita a senha" [(ngModel)]="form.password_confirmation"type="password" name="password_confirmation" required>
+              </mat-form-field></td>
+            </tr> 
+        </table>
+        </form>
+        <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button (click)="register($event)" color="primary">Registar</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-tab>
+</mat-tab-group>
+</mat-card>

@@ -1,0 +1,81 @@
+<navbar></navbar>
+<div class="mat-elevation-z8">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Conta a Receber</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form class="example-form">
+          <table class="full-width-input" cellspacing="0">
+          <tr>
+              <td>
+                <mat-form-field class="full-width-input">
+                <input matInput type="date" placeholder="Data Lançamento" [(ngModel)]="form.date_launch" name="date_launch" required>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field class="full-width-input">
+                <input matInput placeholder="Nome" [(ngModel)]="form.name" name="name" required>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field class="full-width-input">
+                <input matInput placeholder="Valor" [(ngModel)]="form.value" name="value" required>
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+        </form>
+        <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button (click)="save($event)" color="primary" *ngIf="!editable" >Salvar</button>
+        <button mat-raised-button (click)="update($event)" color="primary" *ngIf="editable" >Alterar</button>
+      </mat-card-actions>
+    </mat-card>
+    <br>
+
+    <table mat-table [dataSource]="dataSource">
+  
+      <!-- Id Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+      
+      <!-- date_launch Column -->
+      <ng-container matColumnDef="date_launch">
+        <th mat-header-cell *matHeaderCellDef> Data Lançamento </th>
+        <td mat-cell *matCellDef="let element"> {{element.date_launch}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Nome </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+        <!-- Name Column -->
+      <ng-container matColumnDef="value">
+          <th mat-header-cell *matHeaderCellDef> Valor </th>
+          <td mat-cell *matCellDef="let element"> {{element.value}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Ações </th>
+            <td mat-cell *matCellDef="let element"> 
+              <button mat-raised-button (click)="edit($event, element.id)" color="primary">Editar</button>
+              <button mat-raised-button (click)="del($event, element.id)" color="warn">Deletar</button>
+            </td>
+        </ng-container> 
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
