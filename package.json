@@ -8,6 +8,9 @@
   ],
   "description": "project angular frontend personal finance management systems",
   "version": "0.0.0",
+  "engines": {
+    "node": ">=0.10.3 <12"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
