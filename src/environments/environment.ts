@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  server_url: 'http://localhost:8000',
+  server_url: 'https://rdndeveloper.com/backend',
   client_id: 2,
-  client_secret: "juJiyg84xcNJJrWhCz76YiXj6xw3OPGXLH08ZLty"
+  client_secret: "3hWqysh22NZbfYUFBw7SYoA6BH5akt4ta3z2Osk2"
 };
 
 /*
